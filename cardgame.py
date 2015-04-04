@@ -122,7 +122,7 @@ while running:
       successlist.append(fullcardnum);
       successhandtotal = successhandtotal + cardvaluetable[cardtrantable[cardvalue[cardnum]]];
       fullhandtotal = fullhandtotal + cardvaluetable[cardtrantable[cardvalue[cardnum]]];
-      print("PreRandom Number: "+str(randcardnum)+"; "Random Number: "+str(fullcardnum)+"; Success; Successfull Tries: "+str(successfulltries));
+      print("PreRandom Number: "+str(randcardnum)+"; Random Number: "+str(fullcardnum)+"; Success; Successfull Tries: "+str(successfulltries));
       print("Number of Tries: "+str(trycount)+"; Failed Tries: "+str(ftrycount)+"; Successfull Tries: "+str(strycount));
       print("Picked up "+cardnametrantable[cardvalue[cardnum]]+" of "+cardsuittable[cardnumtype[cardnum]]+"; Value: "+str(cardvaluetable[cardtrantable[cardvalue[cardnum]]]));
     numofcardsup = numofcardsup + 1;
