@@ -12,7 +12,7 @@
     Copyright 2015 Game Maker 2k - https://github.com/GameMaker2k
     Copyright 2015 Kazuki Przyborowski - https://github.com/KazukiPrzyborowski
 
-    $FileInfo: cardgame.py - Last Update: 04/04/2015 Ver. 1.0.0 RC 1 - Author: cooldude2k $
+    $FileInfo: cardgame.py - Last Update: 04/07/2015 Ver. 0.0.5 RC 1 - Author: cooldude2k $
 '''
 
 from __future__ import division, absolute_import, print_function;
@@ -32,21 +32,21 @@ cardsetnum = "1";
 bkgdsetnum = "1";
 filepath = os.path.dirname(os.path.realpath(__file__));
 print("Current Path: "+filepath);
-pybgimg = pygame.image.load(filepath+"/"+os.path.join("backgrounds", bkgdsetnum+".jpg"));
-print("Loading Background Image "+filepath+"/"+os.path.join("backgrounds", bkgdsetnum+".jpg"));
+pybgimg = pygame.image.load(filepath+os.path.sep+os.path.join("backgrounds", bkgdsetnum+".jpg"));
+print("Loading Background Image "+filepath+os.path.sep+os.path.join("backgrounds", bkgdsetnum+".jpg"));
 screen.blit(pybgimg,(0, 0));
-cardbackleft = pygame.image.load(filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pl.png"));
-print("Loading Image "+filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pl.png"));
+cardbackleft = pygame.image.load(filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pl.png"));
+print("Loading Image "+filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pl.png"));
 screen.blit(cardbackleft,(274, 0));
-cardbackright = pygame.image.load(filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pr.png"));
-print("Loading Image "+filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pr.png"));
+cardbackright = pygame.image.load(filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pr.png"));
+print("Loading Image "+filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"pr.png"));
 screen.blit(cardbackright,(357, 0));
-cardback = pygame.image.load(filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"fv.png"));
-print("Loading Image "+filepath+"/"+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"fv.png"));
+cardback = pygame.image.load(filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"fv.png"));
+print("Loading Image "+filepath+os.path.sep+os.path.join("cards"+cardsetnum, "b"+cardbacknum+"fv.png"));
 screen.blit(cardback,(286, 0));
 pygame.display.flip();
-pymusic=pygame.mixer.music.load(filepath+"/"+os.path.join("music", "1.mp3"));
-print("Loading Music "+filepath+"/"+os.path.join("music", "1.mp3"));
+pymusic=pygame.mixer.music.load(filepath+os.path.sep+os.path.join("music", "1.mp3"));
+print("Loading Music "+filepath+os.path.sep+os.path.join("music", "1.mp3"));
 pygame.mixer.music.play(0);
 cardnum = 1;
 cardcol = 0;
@@ -77,8 +77,8 @@ cardtrantable={1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9
 cardvaluetable={"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "j": 10, "k": 10, "q": 10};
 cardnametrantable={1: "Ace", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9", 10: "10", 11: "Jack", 12: "King", 13: "Queen"};
 cardnametablealt={"1": "Ace", "2": "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7", "8": "8", "9": "9", "10": "10", "j": "Jack", "k": "King", "q": "Queen"};
-cardpickup = pygame.mixer.Sound(filepath+"/"+os.path.join("sound", "click.wav"));
-print("Loading Sound "+filepath+"/"+os.path.join("sound", "click.wav")+"\n");
+cardpickup = pygame.mixer.Sound(filepath+os.path.sep+os.path.join("sound", "click.wav"));
+print("Loading Sound "+filepath+os.path.sep+os.path.join("sound", "click.wav")+"\n");
 running = True;
 while running:
  for event in pygame.event.get():
@@ -133,12 +133,12 @@ while running:
     handtotal = handtotal + cardvaluetable[cardtrantable[cardvalue[cardnum]]];
     pygame.display.set_caption(pygamename+" - Score: "+str(handtotal)+"; Failed Score: "+str(failedhandtotal));
     if(cardnumtype[cardnum]<=4):
-     cardpath[cardnum] = filepath+"/"+os.path.join("cards"+cardsetnum, cardnametype[cardnum]+cardtrantable[cardvalue[cardnum]]+".png");
+     cardpath[cardnum] = filepath+os.path.sep+os.path.join("cards"+cardsetnum, cardnametype[cardnum]+cardtrantable[cardvalue[cardnum]]+".png");
     if(cardnumtype[cardnum]==5):
-     cardpath[cardnum] = filepath+"/"+os.path.join("cards"+cardsetnum, cardnametype[cardnum]+cardtrantable[cardvalue[cardnum]]+".png");
+     cardpath[cardnum] = filepath+os.path.sep+os.path.join("cards"+cardsetnum, cardnametype[cardnum]+cardtrantable[cardvalue[cardnum]]+".png");
     print("Loading Image "+cardpath[cardnum]);
     cardimg[cardnum] = pygame.image.load(cardpath[cardnum]);
-    print("Playing Sound "+filepath+"/"+os.path.join("sound", "click.wav")+"\n");
+    print("Playing Sound "+filepath+os.path.sep+os.path.join("sound", "click.wav")+"\n");
     cardpickup.play();
     screen.blit(cardimg[cardnum],(((72 * cardcol) + 33), (97 * cardrow)));
     pygame.display.flip();
